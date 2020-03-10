@@ -3,7 +3,7 @@ import "./DisplayContacts.scss";
 import { IoIosCall } from "react-icons/io";
 import { IoIosPersonAdd } from "react-icons/io";
 
-function DisplayContacts({ contacts, removeContact, handleUpdate }) {
+function DisplayContacts({ contacts, removeContact, handleEdit }) {
   return (
     <div className="contacts">
       {contacts.length === 0 ? (
@@ -13,7 +13,7 @@ function DisplayContacts({ contacts, removeContact, handleUpdate }) {
       ) : (
         contacts.map((contact, index) => {
           return (
-            <div className="contact" key={contact.id}>
+            <div className="contact" key={index}>
               <h1 className="name">
                 <IoIosPersonAdd className="iName" />
                 {contact.name}
@@ -23,7 +23,7 @@ function DisplayContacts({ contacts, removeContact, handleUpdate }) {
                 <IoIosCall className="iNumber" />
                 {contact.number}
               </p>
-              <button className="edit" onClick={() => handleUpdate(index)}>
+              <button className="edit" onClick={() => handleEdit(index)}>
                 Edit
               </button>
               <button

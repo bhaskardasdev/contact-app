@@ -5,6 +5,7 @@ import AddContact from "./components/AddContact/AddContact";
 
 export class App extends Component {
   state = {
+    editedContact: null,
     contacts: [
       {
         name: "Bhaskar Das",
@@ -32,6 +33,22 @@ export class App extends Component {
       }
     ]
   };
+  handleUpdate = data => {
+    const { name, company, number,index } = data;
+    // const index = this.state.contacts.indexOf(this.state.editedContact.number);
+    // console.log(index);
+    const contact = { name, company, number };
+    // console.log(data, contact);
+    const contacts = [...this.state.contacts];
+    contacts[index] = { ...contact };
+    this.setState({ contacts, editedContact:null });
+
+  };
+  handleEdit = index => {
+    let contact = { ...this.state.contacts[index], index: index };
+    // console.log(contact);
+    this.setState({ editedContact: contact });
+  };
 
   addContact = contact => {
     contact.id = this.state.contacts.length + 1;
@@ -48,20 +65,20 @@ export class App extends Component {
       contacts
     });
   };
-  handleUpdate = id => {
-    let contacts = [...this.state.contacts];
-    const a = contacts[id];
-    console.log(a);
-  };
+
   render() {
     return (
       <div className="app">
         <DisplayContacts
           contacts={this.state.contacts}
           removeContact={this.removeContact}
-          handleUpdate={this.handleUpdate}
+          handleEdit={this.handleEdit}
         />
-        <AddContact addContact={this.addContact} />
+        <AddContact
+          addContact={this.addContact}
+          handleUpdate={this.handleUpdate}
+          editedContact={this.state.editedContact}
+        />
       </div>
     );
   }
