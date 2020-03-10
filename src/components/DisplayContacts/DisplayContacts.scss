@@ -1,0 +1,71 @@
+.contacts {
+  margin: 50px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  .notification {
+    position: absolute;
+    left: 40vw;
+  }
+
+  .contact {
+    margin: 30px;
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: left;
+
+    h1 {
+      font-family: "Nunito";
+      font-weight: bolder;
+      color: #222222;
+      font-size: 30px;
+      padding: 0px;
+      margin: 0px;
+    }
+    h3 {
+      font-family: "Nunito";
+      font-weight: 300;
+      color: #272c34;
+      font-size: 15px;
+      padding-left: 50px;
+      margin: 0px;
+    }
+    p {
+      font-family: "Nunito";
+      font-weight: bold;
+      color: #222222;
+      font-size: 20px;
+      padding: 0px;
+      margin-top: 10px;
+    }
+
+    .iName {
+      font-size: 40px;
+      padding-right: 10px;
+    }
+    .iNumber {
+      font-size: 40px;
+      padding-right: 10px;
+    }
+
+    .edit {
+      width: 100px;
+      height: 45px;
+      border: 0;
+      color: white;
+      background-color: #3f51b5;
+      border-radius: 5px;
+      outline: none;
+      margin-right: 20px;
+    }
+    .delete {
+      width: 100px;
+      height: 45px;
+      border: 0;
+      color: white;
+      background-color: #f44336;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+}
